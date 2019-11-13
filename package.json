@@ -4,7 +4,7 @@
   "description": "JSE Telegram Bot prevents spam using the JSE captcha ",
   "main": "server.js",
   "scripts": {
-    "start": "node jsetelegrambot.js",
+    "start": "node jsetelegrambot.js"
   },
   "keywords": [],
   "author": "",
