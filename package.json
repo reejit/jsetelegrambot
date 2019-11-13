@@ -1,0 +1,16 @@
+{
+  "name": "JSE Telegram Bot",
+  "version": "0.1.0",
+  "description": "JSE Telegram Bot prevents spam using the JSE captcha ",
+  "main": "server.js",
+  "scripts": {
+    "start": "node jsetelegrambot.js",
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.0",
+    "telegraf": "^3.33.3"
+  }
+}
