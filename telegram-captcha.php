@@ -51,14 +51,15 @@
     body { text-align: center; font-family: 'Nunito', sans-serif; }
     .small { font-size: 10px; }
     .box { border: 1px solid #CCC; padding: 10px; width: 320px; margin: 10% auto; text-align: center; }
-    h1 { font-size: 18px; font-weight: normal; }
+    h1 { font-size: 17px; font-weight: normal; }
     #iframe-reloader { height: 1px; width: 1px; }
     #JSE-captcha { margin-top: 20px; margin-bottom: 20px; }
+    #JSE-captcha-container { margin: 0px auto !important; }
   </style>
 </head>
 <body>
   <div class="box">
-    <img src="https://jsecoin.com/img/2019_sml.png" style="max-width: 300px;" alt="JSEcoin" />
+    <img src="https://jsecoin.com/img/2019_sml.png" style="max-width: 260px;" alt="JSEcoin" />
     <h1>Please complete the captcha</h1>
 
     <div id="JSE-captcha"></div>
