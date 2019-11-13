@@ -13,6 +13,8 @@ The PHP code is also included which requires curl to do a GET request to check t
 
 Feel free to fork, edit and alter or improve upon.
 
+---
+
 ## Installation
 
 ```bash
@@ -20,8 +22,16 @@ npm install
 npm start
 
 ```
----
 
+## Production
+
+```bash
+npm install
+forever start jsetelegrambot.js
+
+```
+
+---
 
 ## Bug Bounty
 This is an initial push alot of cleanup is still required if you spot an issue please report it and if we consider it a major issue we will credit your account as part of our bug bounty offering.

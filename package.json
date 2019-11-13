@@ -1,5 +1,5 @@
 {
-  "name": "JSE Telegram Bot",
+  "name": "jsetelegrambot",
   "version": "0.1.0",
   "description": "JSE Telegram Bot prevents spam using the JSE captcha ",
   "main": "server.js",
