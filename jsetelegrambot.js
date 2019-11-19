@@ -14,10 +14,10 @@ bot.on('message', async (ctx) => {
 	//const chatTitle = ctx.update.message.chat.title;
 	const msgID = ctx.update.message.message_id;
 	const msg = ctx.update.message.text;
-	//console.log(ctx.update.message);
+	console.log(ctx.update.message);
 	//console.log('-------------------');
 	// delete bad words
-	if (ctx.update.message.text && msg.match(/when lambo 123/i)) {
+	if (ctx.update.message.text && msg.match(/t.me\/joinchat/i)) {
 		ctx.telegram.deleteMessage(chatID, msgID);
 		console.log(`DELETED MSG: ${chatID} - ${msgID}`);
 	}
