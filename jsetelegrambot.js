@@ -15,8 +15,8 @@ bot.on('message', async (ctx) => {
 	const msgID = ctx.update.message.message_id;
 	const msg = ctx.update.message.text;
 	console.log(ctx.update.message);
-	//console.log('-------------------');
-	// delete bad words
+
+	// Prevent links to other channels, common type of spam
 	if (ctx.update.message.text && msg.match(/t.me\/joinchat/i)) {
 		ctx.telegram.deleteMessage(chatID, msgID);
 		console.log(`DELETED JOIN LINK: ${chatID} - ${msgID}`);
@@ -27,10 +27,12 @@ bot.on('message', async (ctx) => {
 			ctx.telegram.deleteMessage(chatID, naughtyMsgID);
 		}, 10000);
 	}
+
 	// message new users about captcha
 	if (ctx.update.message.new_chat_members) {
 		ctx.update.message.new_chat_members.forEach(async (newUser) => {
 			console.log(`New User Joined ${newUser.username} ID: ${newUser.id}`);
+			if (newUser.username === 'jsetelegrambot') return false;
 			const introMessage = `Hello @${newUser.username}, please complete the captcha at https://jsecoin.com/telegram-captcha.php?u=${newUser.id} within the next 90 seconds and before posting a message. This is to prevent spam on the Telegram channel.`;
 			const introMsgTicket = await ctx.reply(introMessage);
 			//console.log(introMsgTicket);
@@ -47,6 +49,7 @@ bot.on('message', async (ctx) => {
 			}, 90000);
 		});
 	}
+
 	// block new users
 	if (ctx.update.message.text && newUsers.indexOf(ctx.update.message.from.id) > -1) {
 		ctx.telegram.deleteMessage(chatID, msgID);
