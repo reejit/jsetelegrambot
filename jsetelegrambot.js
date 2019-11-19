@@ -14,7 +14,7 @@ bot.on('message', async (ctx) => {
 	//const chatTitle = ctx.update.message.chat.title;
 	const msgID = ctx.update.message.message_id;
 	const msg = ctx.update.message.text;
-//console.log(ctx.update.message);
+	//console.log(ctx.update.message);
 
 	// Prevent links to other channels, common type of spam
 	if (ctx.update.message.text && msg.match(/t.me\/joinchat/i)) {
@@ -30,6 +30,9 @@ bot.on('message', async (ctx) => {
 
 	// message new users about captcha
 	if (ctx.update.message.new_chat_members) {
+		setTimeout(() => {
+			ctx.telegram.deleteMessage(chatID, msgID);
+		}, 60000);
 		ctx.update.message.new_chat_members.forEach(async (newUser) => {
 			console.log(`New User Joined ${newUser.username} ID: ${newUser.id}`);
 			if (newUser.username === 'jsetelegrambot') return false;
