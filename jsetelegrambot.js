@@ -14,7 +14,7 @@ bot.on('message', async (ctx) => {
 	//const chatTitle = ctx.update.message.chat.title;
 	const msgID = ctx.update.message.message_id;
 	const msg = ctx.update.message.text;
-	console.log(ctx.update.message);
+//console.log(ctx.update.message);
 
 	// Prevent links to other channels, common type of spam
 	if (ctx.update.message.text && msg.match(/t.me\/joinchat/i)) {
@@ -33,7 +33,9 @@ bot.on('message', async (ctx) => {
 		ctx.update.message.new_chat_members.forEach(async (newUser) => {
 			console.log(`New User Joined ${newUser.username} ID: ${newUser.id}`);
 			if (newUser.username === 'jsetelegrambot') return false;
-			const introMessage = `Hello @${newUser.username}, please complete the captcha at https://jsecoin.com/telegram-captcha.php?u=${newUser.id} within the next 90 seconds and before posting a message. This is to prevent spam on the Telegram channel.`;
+			let userString = `${newUser.first_name} ${newUser.last_name}`;
+			if (newUser.username) userString += ` (@${newUser.username})`;
+			const introMessage = `Hello ${userString}, please complete the captcha at https://jsecoin.com/telegram-captcha.php?u=${newUser.id} within the next 90 seconds and before posting a message. This is to prevent spam on the Telegram channel.`;
 			const introMsgTicket = await ctx.reply(introMessage);
 			//console.log(introMsgTicket);
 			const introMsgID = introMsgTicket.message_id;
